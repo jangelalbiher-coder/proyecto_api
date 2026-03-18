@@ -1,11 +1,7 @@
 package mx.edu.caidt.proyecto_api.alumno;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import mx.edu.caidt.proyecto_api.docente.Docente;
 
 @AllArgsConstructor
@@ -13,21 +9,30 @@ import mx.edu.caidt.proyecto_api.docente.Docente;
 @Data
 @ToString
 @Entity
-@Table(name = "alumno")
-
+@Table(name="alumno")
 public class Alumno {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idAlumno;
+    @Column(nullable=false,length=80)
+
     private String nombre;
-    private int semestre;
+    @Column(nullable=false,length=20)
+
+    private String semestre;
+    @Column(nullable=false,length=30)
+
     private String modalidad;
+    @Column(nullable=false,length=60)
+
     private String carrera;
 
-    @OneToMany
-    @JoinColumn(name = "id" )
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne
+    @JoinColumn(name="idDocente")
     private Docente docente;
 
+    @OneToMany(mappedBy="idAlumno")
+    private Alumno alumno;
 
 }

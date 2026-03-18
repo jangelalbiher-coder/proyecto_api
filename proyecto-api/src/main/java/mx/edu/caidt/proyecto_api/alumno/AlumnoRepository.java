@@ -1,4 +1,8 @@
 package mx.edu.caidt.proyecto_api.alumno;
 
-public interface AlumnoRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+public interface AlumnoRepository extends CrudRepository <Alumno,Long> {
+
 }
