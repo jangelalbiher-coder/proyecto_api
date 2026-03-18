@@ -35,7 +35,7 @@ public class DocenteController {
         }
     }
 
-    //FALTAA
+
     @PostMapping
     public ResponseEntity<Docente> create(@RequestBody Docente docente, UriComponentsBuilder uriBuilder) {
         Optional<Alumno> alumnoOptional = alumnoRepository.findById(docente.getAlumno().getIdAlumno());

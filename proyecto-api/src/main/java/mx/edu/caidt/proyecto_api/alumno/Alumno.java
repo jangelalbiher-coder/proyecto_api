@@ -32,7 +32,4 @@ public class Alumno {
     @JoinColumn(name="idDocente")
     private Docente docente;
 
-    @OneToMany(mappedBy="idAlumno")
-    private Alumno alumno;
-
 }

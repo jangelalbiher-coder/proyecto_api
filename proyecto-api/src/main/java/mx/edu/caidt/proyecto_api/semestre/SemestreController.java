@@ -75,14 +75,10 @@ public class SemestreController {
 
         @DeleteMapping("/{idSemestre}")
         public ResponseEntity<Void> delete(@PathVariable Long idSemestre){
-
             if(semestreRepository.findById(idSemestre).isPresent()){
-
                 semestreRepository.deleteById(idSemestre);
-
                 return ResponseEntity.noContent().build();
             }
-
             return ResponseEntity.notFound().build();
         }
 
